@@ -10,39 +10,41 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(
-          leading: Icon(
-            Icons.adb,
-            color: Colors.white,
-          ),
-          title: Text(
-            "Custom AppBar Demo",
-            style: TextStyle(color: Colors.white),
-          ),
-          actions: [
-            IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.settings, color: Colors.white,),
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.exit_to_app, color: Colors.white,),
-            ),
-          ],
-          flexibleSpace: Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [Colors.teal, Colors.cyan],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
+        appBar: PreferredSize(
+          /// preferredSize digunakan untuk mengatur tinggi AppBar
+          preferredSize: const Size.fromHeight(200), // tinggi AppBar
+          child: AppBar(
+            backgroundColor: Colors.lightBlue,
+            // title: Text("Custome App Bar"),
+            flexibleSpace:  Align(
+              alignment: Alignment.center,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Custom App Bar Demo",
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
+                  ),
+                  Container(
+                    margin: EdgeInsets.fromLTRB(30, 10, 30, 0),
+                    child: Divider(
+                      color: Colors.white,
+                      thickness: 3,
+                    ),
+                  )
+                ],
               ),
-              image: DecorationImage(
-                  image: AssetImage("assets/pattern.png"),
-                  fit: BoxFit.none,
-                  repeat: ImageRepeat.repeat),
             ),
           ),
+          
+        ),
+        body: Center(
+          child: Text("Ini bagian body"),
         ),
       ),
     );
