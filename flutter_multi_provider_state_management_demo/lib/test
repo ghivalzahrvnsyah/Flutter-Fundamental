@@ -1,0 +1,21 @@
+Consumer<Money>(
+            builder: (BuildContext context, money, _) {
+              return Consumer<Cart>(
+                builder: (BuildContext context, value, _) {
+                  return FloatingActionButton(
+                    onPressed: () {
+                      if (money.balance >= 500) {
+                        money.balance -= 500;
+                        value.quantity += 1;
+                      }
+                    },
+                    backgroundColor: Colors.purple,
+                    child: const Icon(
+                      Icons.add_shopping_cart,
+                      color: Colors.white,
+                    ),
+                  );
+                },
+              );
+            },
+          ),
